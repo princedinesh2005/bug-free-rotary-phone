@@ -1,0 +1,56 @@
+package Inheritance;
+
+import java.util.Scanner;
+
+// Base class
+class Person {
+    String name;
+    int age;
+
+    void getPersonDetails() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Name: ");
+        name = sc.nextLine();
+        System.out.print("Enter Age: ");
+        age = sc.nextInt();
+    }
+
+    void displayPersonDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Derived class
+class Student extends Person {
+    // FIX 1: Change regNo from int to String
+    String regNo; 
+    String department;
+
+    void getStudentDetails() {
+        Scanner sc = new Scanner(System.in);
+        // FIX 2: Consume the leftover newline from getPersonDetails() 
+        // if this method follows an int input.
+        System.out.print("Enter Register Number: ");
+        // FIX 3: Use nextLine() to allow alphanumeric input
+        regNo = sc.nextLine(); 
+        
+        System.out.print("Enter Department: ");
+        department = sc.nextLine();
+    }
+
+    void displayStudentDetails() {
+        displayPersonDetails(); // Reusing base class method
+        System.out.println("Register Number: " + regNo);
+        System.out.println("Department: " + department);
+    }
+}
+
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.getPersonDetails();   // Base class method
+        s.getStudentDetails();  // Derived class method
+        s.displayStudentDetails();
+    }
+}
