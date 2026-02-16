@@ -1,0 +1,39 @@
+package exp5;
+
+import java.util.Scanner;
+//Interface
+interface Shape {
+void area();
+}
+//Implementing class 1
+class Rectangle implements Shape {
+int length, breadth;
+
+Rectangle(int l, int b) {
+length = l;
+breadth = b;
+}
+public void area() {
+System.out.println("Area of Rectangle: " + (length * breadth));
+}
+}
+// Implementing class 2
+class Circle implements Shape {
+double radius;
+Circle(double r) {
+radius = r;
+}
+public void area() {
+System.out.println("Area of Circle: " + (3.14 * radius * radius));
+}
+}
+public class InterfacePolymorphismDemo {
+public static void main(String[] args) {
+Shape s; // Interface reference
+
+s = new Rectangle(10, 5);
+s.area(); // Calls Rectangle's area()
+s = new Circle(7);
+s.area(); // Calls Circle's area()
+}
+}
