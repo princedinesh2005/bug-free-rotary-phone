@@ -1,0 +1,31 @@
+package studentpack;
+
+public class Student {
+private String name;
+private int regNo;
+// Setter methods
+public void setName(String n) {
+name = n;
+}
+public void setRegNo(int r) {
+regNo = r;
+}
+// Getter methods
+public String getName() {
+return name;
+}
+public int getRegNo() {
+return regNo;
+}
+}
+package s;
+import studentpack.Student;
+public class PackageEncapsulationDemo {
+public static void main(String[] args) {
+Student s = new Student();
+s.setName("Prince");
+s.setRegNo(4001);
+System.out.println("Student Name: " + s.getName());
+System.out.println("Register Number: " + s.getRegNo());
+}
+}
